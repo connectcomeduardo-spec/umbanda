@@ -3,244 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umbanda Digital - Portal do Terreiro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Portal Umbanda - Doutrina e Fundamentos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        .gradient-header { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
-        .card-liderança { background: linear-gradient(to bottom right, #ffffff, #f0f9ff); }
-        .badge-cor { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-right: 5px; border: 1px solid #ccc; }
+        :root {
+            --ouro: #d4af37;
+            --azul-escuro: #0a1f33;
+            --branco: #ffffff;
+            --cinza-claro: #f8f9fa;
+            --borda: #e0e0e0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--cinza-claro); color: #333; line-height: 1.6; }
+
+        /* Header Dinâmico */
+        header {
+            background: linear-gradient(135deg, var(--azul-escuro) 0%, #1a3a5f 100%);
+            color: var(--branco);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--ouro);
+        }
+        header h1 { font-family: 'Cinzel', serif; font-size: 2.8rem; letter-spacing: 2px; }
+        header p { font-style: italic; opacity: 0.9; margin-top: 10px; }
+
+        /* Navegação */
+        nav {
+            background: var(--branco);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+        }
+        nav a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--azul-escuro);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+        nav a:hover { color: var(--ouro); background: #f0f0f0; }
+
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+        /* Sistema de Abas */
+        .tab-container { background: var(--branco); padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .tab-content { display: none; animation: fadeIn 0.5s; }
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        h2 { font-family: 'Cinzel', serif; color: var(--azul-escuro); border-bottom: 2px solid var(--ouro); padding-bottom: 10px; margin: 30px 0 20px; }
+
+        /* Cards e Grids */
+        .grid-7 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: var(--cinza-claro); padding: 20px; border-radius: 8px; border-left: 4px solid var(--ouro); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card h3 { color: var(--azul-escuro); margin-bottom: 10px; }
+
+        /* Tabelas Dinâmicas */
+        .table-wrapper { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; background: var(--branco); }
+        th { background: var(--azul-escuro); color: white; padding: 15px; text-align: left; }
+        td { padding: 12px; border: 1px solid var(--borda); font-size: 0.9rem; }
+        tr:nth-child(even) { background: #fdfdfd; }
+
+        /* Acordeão para o Calendário Mensal */
+        .accordion { background: #eee; color: #444; cursor: pointer; padding: 18px; width: 100%; text-align: left; border: none; outline: none; transition: 0.4s; margin-top: 5px; font-weight: bold; border-radius: 5px; }
+        .active, .accordion:hover { background: #ddd; }
+        .panel { padding: 0 18px; display: none; background-color: white; overflow: hidden; border: 1px solid #ddd; border-top: none; margin-bottom: 10px; }
+
+        /* Estilo da Hierarquia */
+        .hierarchy-list { list-style: none; }
+        .hierarchy-list li { background: var(--azul-escuro); color: white; margin-bottom: 8px; padding: 15px; border-radius: 5px; display: flex; justify-content: space-between; }
+        .hierarchy-list li span { color: var(--ouro); font-weight: bold; }
+
+        footer { text-align: center; padding: 40px; background: var(--azul-escuro); color: white; margin-top: 50px; }
+
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body>
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold text-blue-800 flex items-center gap-2">
-                <i class="fas fa-church"></i> Portal do Terreiro
-            </h1>
-            <div class="hidden lg:flex space-x-6 text-sm font-medium">
-                <a href="#linhas" class="hover:text-blue-600 transition">7 Linhas</a>
-                <a href="#guias" class="hover:text-blue-600 transition">Guias Chefes</a>
-                <a href="#hierarquia" class="hover:text-blue-600 transition">Hierarquia</a>
-                <a href="#lideranças" class="hover:text-blue-600 transition">Lideranças</a>
-                <a href="#consultas" class="hover:text-blue-600 transition">Consultas</a>
+<header>
+    <h1>Doutrina e Fundamentos</h1>
+    <p>Organização das Forças Espirituais, Reinos e Rituais</p>
+</header>
+
+<nav>
+    <a href="javascript:void(0)" onclick="openTab(event, 'doutrina')">Doutrina</a>
+    <a href="javascript:void(0)" onclick="openTab(event, 'linhas')">As 7 Linhas</a>
+    <a href="javascript:void(0)" onclick="openTab(event, 'entidades')">Entidades</a>
+    <a href="javascript:void(0)" onclick="openTab(event, 'oferendas')">Oferendas</a>
+    <a href="javascript:void(0)" onclick="openTab(event, 'calendario')">Calendário</a>
+    <a href="javascript:void(0)" onclick="openTab(event, 'hierarquia')">Hierarquia</a>
+</nav>
+
+<div class="container">
+    <div class="tab-container">
+
+        <!-- ABA 1: DOUTRINA -->
+        <div id="doutrina" class="tab-content active">
+            <h2>Princípios Fundamentais</h2>
+            <div class="grid-7">
+                <div class="card">
+                    <h3>O que é a Umbanda?</h3>
+                    <p>Uma forma de organizar as forças espirituais onde cada linha é regida por um Orixá e representa um princípio fundamental da vida.</p>
+                </div>
+                <div class="card">
+                    <h3>Defumação</h3>
+                    <p>Limpeza do ambiente e do corpo, protegendo a casa e preparando os trabalhos espirituais.</p>
+                </div>
+                <div class="card">
+                    <h3>Funcionamento</h3>
+                    <p>As linhas organizam <strong>falanges</strong> (Caboclos, Pretos Velhos, etc). Não são rígidas, mas campos de força que se interligam.</p>
+                </div>
             </div>
+            
+            <h2>Linhas de Consulta</h2>
+            <p>Trabalhamos com: Bonhadeiro, Marinheiro, Preto Velho, Baianos, Ciganos, Exu e Malandro.</p>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="gradient-header py-12 px-4 text-center text-white">
-        <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Nossa Doutrina e Fundamentos</h2>
-        <p class="text-blue-100 max-w-2xl mx-auto">Organização das forças espirituais, hierarquia e guias que regem nossa casa.</p>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 py-10">
-
-        <!-- 1. Tabela Detalhada das 7 Linhas e Associações -->
-        <section id="linhas" class="mb-16">
-            <h3 class="text-2xl font-bold mb-6 flex items-center gap-2"><i class="fas fa-star text-yellow-500"></i> As 7 Linhas da Umbanda</h3>
-            <div class="overflow-x-auto bg-white rounded-2xl shadow-sm border border-slate-200">
-                <table class="w-full text-left text-sm">
-                    <thead class="bg-slate-100 text-slate-700 uppercase">
+        <!-- ABA 2: AS 7 LINHAS -->
+        <div id="linhas" class="tab-content">
+            <h2>Mapa das Sete Linhas</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
                         <tr>
-                            <th class="p-4">Orixá</th>
-                            <th class="p-4">Cor Ritual</th>
-                            <th class="p-4">Insígnia</th>
-                            <th class="p-4">Reino/Ponto de Força</th>
-                            <th class="p-4">Ervas Principais</th>
+                            <th>Linha</th>
+                            <th>Orixá Regente</th>
+                            <th>Conexões Principais</th>
+                            <th>Ponto de Força</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-100">
-                        <tr>
-                            <td class="p-4 font-bold">Oxalá</td>
-                            <td class="p-4"><span class="badge-cor bg-white"></span> Branco Leitoso</td>
-                            <td class="p-4">Cajado/Cruz</td>
-                            <td class="p-4">Campos Abertos</td>
-                            <td class="p-4">Boldo, Tapete de Oxalá</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold">Oxóssi</td>
-                            <td class="p-4"><span class="badge-cor bg-green-600"></span> Verde</td>
-                            <td class="p-4">Flecha</td>
-                            <td class="p-4">Mata</td>
-                            <td class="p-4">Erva-de-S. Jorge, Guiné</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold">Ogum</td>
-                            <td class="p-4"><span class="badge-cor bg-red-600"></span> Vermelho</td>
-                            <td class="p-4">Espada</td>
-                            <td class="p-4">Estradas / Batalhas</td>
-                            <td class="p-4">Espada-de-S. Jorge</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold">Xangô (Kao/Agodô)</td>
-                            <td class="p-4"><span class="badge-cor bg-amber-800"></span> Marrom</td>
-                            <td class="p-4">Machado (1 ou 2 lâminas)</td>
-                            <td class="p-4">Pedreira</td>
-                            <td class="p-4">Folha de Mangueira</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold">Iemanjá</td>
-                            <td class="p-4"><span class="badge-cor bg-blue-300"></span> Azul Claro</td>
-                            <td class="p-4">Conchá</td>
-                            <td class="p-4">Mar</td>
-                            <td class="p-4">Colônia, Alfazema</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold">Iansã (Oyá)</td>
-                            <td class="p-4"><span class="badge-cor bg-red-500"></span> Vermelho/Rosa</td>
-                            <td class="p-4">Eruexim</td>
-                            <td class="p-4">Ventos / Tempestades</td>
-                            <td class="p-4">Onze-horas, Embaúba</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold">Nanã</td>
-                            <td class="p-4"><span class="badge-cor bg-purple-700"></span> Roxo / Lilás</td>
-                            <td class="p-4">Ibiri</td>
-                            <td class="p-4">Poços, Mangues, Lama</td>
-                            <td class="p-4">Mamona, Babosa</td>
-                        </tr>
+                    <tbody>
+                        <tr><td>Fé</td><td>Oxalá</td><td>Paz e Equilíbrio (Força Central)</td><td>Campos Abertos, Colinas</td></tr>
+                        <tr><td>Lei</td><td>Ogum</td><td>Ordem e Proteção (Abre caminhos)</td><td>Estradas, Encruzilhadas</td></tr>
+                        <tr><td>Conhecimento</td><td>Oxóssi</td><td>Sabedoria e Cura (Mata e Erês)</td><td>Matas, Florestas</td></tr>
+                        <tr><td>Justiça</td><td>Xangô</td><td>Retidão (Conecta com Iansã)</td><td>Pedreiras, Montanhas</td></tr>
+                        <tr><td>Geração</td><td>Iemanjá</td><td>Maternidade (Oxum e Nanã)</td><td>Mar, Rios, Lagoas</td></tr>
+                        <tr><td>Movimentação</td><td>Iansã</td><td>Transformação (Ventos e Exus)</td><td>Ventos, Tempestades</td></tr>
+                        <tr><td>Evolução</td><td>Omulu/Obaluaiê</td><td>Cura e Transmutação</td><td>Cemitérios, Cruzeiros</td></tr>
+                        <tr><td>Mista (Iofá)</td><td>Diversos</td><td>Arquétipos Humanos (Caridade)</td><td>Locais Urbanos, Praças</td></tr>
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
 
-        <!-- 2. Guias Chefes (Mãe e Pai) -->
-        <section id="guias" class="mb-16">
-            <h3 class="text-2xl font-bold mb-6"><i class="fas fa-user-shield text-blue-600"></i> Guias Chefes da Casa</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Coluna Mãe -->
-                <div class="bg-pink-50 p-6 rounded-2xl border border-pink-100">
-                    <h4 class="text-xl font-bold text-pink-800 mb-4 border-b border-pink-200 pb-2">Falange da Mãe</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><strong>Preto Velho:</strong> Vó Maria Conga</li>
-                        <li><strong>Pomba Gira:</strong> Maria Padilha</li>
-                        <li><strong>Exu:</strong> Tranca Rua (Mata/Encruzilhada)</li>
-                        <li><strong>Marinheiro:</strong> Chico Beira Mar</li>
-                        <li><strong>Boiadeiro:</strong> Seu João Pantaneiro</li>
-                        <li><strong>Baiana:</strong> Rosa Maria do Livramento</li>
-                        <li><strong>Cigana:</strong> Rúbia</li>
-                        <li><strong>Ogum:</strong> Rompe Mata (Coração das Matas)</li>
-                    </ul>
+        <!-- ABA 3: ENTIDADES -->
+        <div id="entidades" class="tab-content">
+            <h2>Arquétipos de Trabalho</h2>
+            <div class="grid-7">
+                <div class="card">
+                    <h3>Pretos Velhos</h3>
+                    <p><strong>Aparência:</strong> Anciãos negros sentados em banquinhos.<br><strong>Função:</strong> Conselhos, sabedoria, calma.<br><strong>Saudação:</strong> Adorei as Almas!</p>
                 </div>
-                <!-- Coluna Pai -->
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-                    <h4 class="text-xl font-bold text-blue-800 mb-4 border-b border-blue-200 pb-2">Falange do Pai</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><strong>Preto Velho:</strong> Pai Joaquim das Almas</li>
-                        <li><strong>Marinheiro:</strong> Zé da Maré</li>
-                        <li><strong>Boiadeiro:</strong> João da Boiada Preta</li>
-                        <li><strong>Baiano:</strong> Zé do Cangaço</li>
-                        <li><strong>Ogum:</strong> Ogum Mege / Caboclo da Lua</li>
-                    </ul>
+                <div class="card">
+                    <h3>Caboclos</h3>
+                    <p><strong>Aparência:</strong> Índios ou mestiços fortes.<br><strong>Função:</strong> Cura espiritual, coragem, força.<br><strong>Saudação:</strong> Okê Caboclo!</p>
+                </div>
+                <div class="card">
+                    <h3>Baianos</h3>
+                    <p><strong>Aparência:</strong> Alegres e descontraídos.<br><strong>Função:</strong> Quebra de magias, firmeza.<br><strong>Saudação:</strong> Xetroá Bahia!</p>
+                </div>
+                <div class="card">
+                    <h3>Ciganos</h3>
+                    <p><strong>Aparência:</strong> Roupas coloridas e adornos.<br><strong>Função:</strong> Prosperidade e amor.<br><strong>Saudação:</strong> Optchá!</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 3. Hierarquia e Lideranças -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        <!-- ABA 4: OFERENDAS -->
+        <div id="oferendas" class="tab-content">
+            <h2>Guia Prático de Oferendas</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Orixá</th>
+                            <th>Comidas Frequentes</th>
+                            <th>Bebidas</th>
+                            <th>Flores / Ervas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Oxalá</td><td>Canjica branca, milho branco</td><td>Água, leite, vinho tinto</td><td>Rosas Brancas / Boldo</td></tr>
+                        <tr><td>Ogum</td><td>Feijão preto, carne vermelha</td><td>Cerveja, vinho tinto</td><td>Cravos Vermelhos / Espada S. Jorge</td></tr>
+                        <tr><td>Oxóssi</td><td>Frutas, milho verde</td><td>Vinho branco</td><td>Flores do campo / Erva-doce</td></tr>
+                        <tr><td>Xangô</td><td>Amalá (Quiabo), frutas secas</td><td>Vinho tinto</td><td>Palmas Amarelas / Folha Mangueira</td></tr>
+                        <tr><td>Iemanjá</td><td>Peixes, arroz doce</td><td>Champanhe, vinho branco</td><td>Rosas Brancas e Azuis / Alfazema</td></tr>
+                        <tr><td>Iansã</td><td>Acarajé, feijão fradinho</td><td>Cerveja, vinho tinto</td><td>Cravos Vermelhos / Pimenta</td></tr>
+                        <tr><td>Omulu</td><td>Pipoca, mandioca cozida</td><td>Vinho tinto, café</td><td>Crisântemos / Losna</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ABA 5: CALENDÁRIO -->
+        <div id="calendario" class="tab-content">
+            <h2>Rituais Mensais</h2>
+            <p>Clique nos meses para ver as datas e oferendas específicas:</p>
             
-            <!-- Hierarquia (Lista) -->
-            <section id="hierarquia" class="lg:col-span-1 bg-white p-6 rounded-2xl shadow-sm border">
-                <h3 class="text-xl font-bold mb-4">Hierarquia da Casa</h3>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                        <span class="bg-blue-800 text-white text-xs font-bold px-2 py-1 rounded">CCT</span>
-                        <p class="text-sm">Comandante Chefe (Babalaô)</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">CC</span>
-                        <p class="text-sm">Cambone Chefe</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="bg-blue-400 text-white text-xs font-bold px-2 py-1 rounded">Ogans</span>
-                        <p class="text-sm">Harmonia e Atabaques</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="bg-slate-500 text-white text-xs font-bold px-2 py-1 rounded">PP/MP</span>
-                        <p class="text-sm">Pai e Mãe Pequena</p>
-                    </div>
-                    <hr>
-                    <div class="text-xs text-slate-500 italic">
-                        Outros cargos: Sub-Comandante (SCCT), Chefe de Terreiro (CT), Sub-Chefe (SCT), Fiscais.
-                    </div>
-                </div>
-            </section>
-
-            <!-- Lideranças (Cards) -->
-            <section id="lideranças" class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Mãe Andrea -->
-                <div class="card-liderança p-6 rounded-2xl shadow-md border border-blue-100">
-                    <h4 class="text-lg font-bold text-blue-900 mb-1">Mãe Andrea</h4>
-                    <p class="text-xs text-slate-500 mb-4 uppercase tracking-widest">Liderança Espiritual</p>
-                    <div class="text-sm space-y-2">
-                        <p><strong>Pai de Cabeça:</strong> Oxóssi</p>
-                        <p><strong>Sincretismo:</strong> S. João Sebastião (20/Jan)</p>
-                        <p><strong>Entidade:</strong> Caboclo Arranca Toco</p>
-                        <hr>
-                        <p><strong>Mãe de Cabeça:</strong> Oxum</p>
-                        <p><strong>Sincretismo:</strong> N. Sra. Aparecida (12/Out)</p>
-                        <p><strong>Entidade:</strong> Cabocla Sol Nascente</p>
-                    </div>
-                </div>
-                <!-- Pai Vigilato -->
-                <div class="card-liderança p-6 rounded-2xl shadow-md border border-blue-100">
-                    <h4 class="text-lg font-bold text-blue-900 mb-1">Pai Vigilato</h4>
-                    <p class="text-xs text-slate-500 mb-4 uppercase tracking-widest">Liderança Espiritual</p>
-                    <div class="text-sm space-y-2">
-                        <p><strong>Pai de Cabeça:</strong> Xangô Cão</p>
-                        <p><strong>Sincretismo:</strong> São João Batista (24/Jun)</p>
-                        <p><strong>Entidade:</strong> Caboclo Campo Dourado</p>
-                        <hr>
-                        <p><strong>Mãe de Cabeça:</strong> Iemanjá</p>
-                        <p><strong>Sincretismo:</strong> N. Sra. dos Navegantes (08/Dez)</p>
-                        <p><strong>Entidade:</strong> Cabocla Estrela do Mar Azul</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- 4. Linhas de Consulta e Defumação -->
-        <section id="consultas" class="mb-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border">
-                    <h3 class="text-xl font-bold mb-4"><i class="fas fa-comments text-green-600"></i> Linhas de Consulta</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Preto Velho</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Marinheiro</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Baianos</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Ciganos</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Exu</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Malandro</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Boiadeiro</span>
-                    </div>
-                </div>
-                <div class="bg-slate-800 text-white p-8 rounded-3xl shadow-sm">
-                    <h3 class="text-xl font-bold mb-4 text-blue-300"><i class="fas fa-smog"></i> Defumação</h3>
-                    <p class="text-sm opacity-90 leading-relaxed">
-                        Utilizada para limpar tanto o ambiente quanto o corpo. Sua função é proteger a casa e preparar o campo vibratório para os trabalhos que serão realizados, removendo energias densas.
-                    </p>
-                </div>
+            <button class="accordion">JANEIRO</button>
+            <div class="panel">
+                <p><strong>01/01 - Oxalá:</strong> Oferendas de canjica e frutas brancas. Ponto: Campos abertos.</p>
+                <p><strong>06/01 - Reis Magos:</strong> Linha da Fé. Velas e flores brancas.</p>
             </div>
-        </section>
 
-    </main>
+            <button class="accordion">FEVEREIRO</button>
+            <div class="panel">
+                <p><strong>02/02 - Iemanjá:</strong> Arroz doce, peixes, rosas brancas. Ponto: Praias.</p>
+                <p><strong>04/02 - Oxum:</strong> Frutas doces, bolos e flores amarelas. Ponto: Cachoeiras.</p>
+            </div>
 
-    <footer class="bg-slate-900 text-slate-400 py-12 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <p class="text-white font-bold mb-2">Umbanda: Sabedoria e Caridade</p>
-            <p class="text-xs mb-6 italic">"As cores podem variar conforme a tradição de cada terreiro, mas o fundamento é o amor."</p>
-            <div class="flex justify-center gap-6 text-xl">
-                <i class="fab fa-instagram hover:text-white cursor-pointer"></i>
-                <i class="fab fa-facebook hover:text-white cursor-pointer"></i>
-                <i class="fab fa-whatsapp hover:text-white cursor-pointer"></i>
+            <button class="accordion">ABRIL / MAIO</button>
+            <div class="panel">
+                <p><strong>23/04 - Ogum:</strong> Feijão preto, cerveja, cravos. Ponto: Estradas.</p>
+                <p><strong>13/05 - Pretos Velhos:</strong> Café, bolo de fubá, pipoca. Ponto: Cruzeiros.</p>
+            </div>
+
+            <button class="accordion">OUTUBRO / NOVEMBRO</button>
+            <div class="panel">
+                <p><strong>Outubro:</strong> Mês dos Caboclos e Boiadeiros. Frutas e charutos.</p>
+                <p><strong>15/11:</strong> Fundação da Umbanda (Caboclo das Sete Encruzilhadas).</p>
+            </div>
+
+            <button class="accordion">DEZEMBRO</button>
+            <div class="panel">
+                <p><strong>04/12 - Iansã:</strong> Acarajé e feijão fradinho. Ponto: Ventos e tempestades.</p>
+                <p><strong>08/12 - Oxum:</strong> Mel, frutas doces e águas claras.</p>
+                <p><strong>25/12 - Oxalá:</strong> Encerramento de ano e renovação.</p>
             </div>
         </div>
-    </footer>
+
+        <!-- ABA 6: HIERARQUIA -->
+        <div id="hierarquia" class="tab-content">
+            <h2>Hierarquia da Nossa Casa</h2>
+            <ul class="hierarchy-list">
+                <li>CCT - Comandante Chefe do Terreiro <span>Pai Vigilato / Mãe Andrea / Yan</span></li>
+                <li>CC - Cambone Chefe <span>Gestão de Apoio</span></li>
+                <li>Ogans <span>Harmonia e Curimba</span></li>
+                <li>PP / MP <span>Pai Pequeno / Mãe Pequena</span></li>
+                <li>SCCT <span>Sub Comandante (Abareguassu)</span></li>
+                <li>CT <span>Chefe de Terreiro (Abaré)</span></li>
+            </ul>
+
+            <h2>Pais e Mães de Cabeça</h2>
+            <div class="grid-7" style="margin-top: 20px;">
+                <div class="card" style="border-left-color: #00bcd4;">
+                    <h3>Mãe Andrea</h3>
+                    <p><strong>Pai:</strong> Oxóssi (Caboclo Arranca Toco)</p>
+                    <p><strong>Mãe:</strong> Oxum (Cabocla Sol Nascente)</p>
+                </div>
+                <div class="card" style="border-left-color: #ff9800;">
+                    <h3>Pai Vigilato</h3>
+                    <p><strong>Pai:</strong> Xangô Cão (Caboclo Campo Dourado)</p>
+                    <p><strong>Mãe:</strong> Iemanjá (Cabocla Estrela do Mar Azul)</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>© 2024 Doutrina de Umbanda - Organização das Forças Espirituais</p>
+    <p><em>"A Umbanda é o encontro da natureza com o coração humano."</em></p>
+</footer>
+
+<script>
+    // Função para as Abas
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+    }
+
+    // Função para o Acordeão
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
