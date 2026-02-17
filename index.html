@@ -3,258 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umbanda Digital - Guia de Estudos</title>
+    <title>Umbanda Digital - Portal do Terreiro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
         body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        .gradient-bg { background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); }
-        .tab-active { border-bottom: 3px solid #3b82f6; color: #1e40af; }
-        .card-glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        .gradient-header { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .card-liderança { background: linear-gradient(to bottom right, #ffffff, #f0f9ff); }
+        .badge-cor { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-right: 5px; border: 1px solid #ccc; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-    <!-- Header / Nav -->
+    <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-blue-800 flex items-center gap-2">
-                <i class="fas fa-dharmachakra"></i> Umbanda Digital
+            <h1 class="text-xl font-bold text-blue-800 flex items-center gap-2">
+                <i class="fas fa-church"></i> Portal do Terreiro
             </h1>
-            <div class="hidden md:flex space-x-6">
-                <a href="#entidades" class="hover:text-blue-600">Entidades</a>
-                <a href="#setelinhas" class="hover:text-blue-600">7 Linhas</a>
-                <a href="#oferendas" class="hover:text-blue-600">Oferendas</a>
-                <a href="#calendario" class="hover:text-blue-600">Calendário</a>
+            <div class="hidden lg:flex space-x-6 text-sm font-medium">
+                <a href="#linhas" class="hover:text-blue-600 transition">7 Linhas</a>
+                <a href="#guias" class="hover:text-blue-600 transition">Guias Chefes</a>
+                <a href="#hierarquia" class="hover:text-blue-600 transition">Hierarquia</a>
+                <a href="#lideranças" class="hover:text-blue-600 transition">Lideranças</a>
+                <a href="#consultas" class="hover:text-blue-600 transition">Consultas</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="gradient-bg py-16 px-4 text-center">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4">Conhecimento e Axé</h2>
-        <p class="text-lg text-slate-600 max-w-2xl mx-auto">Explore os fundamentos, as entidades e os rituais das Sete Linhas da Umbanda em um só lugar.</p>
+    <header class="gradient-header py-12 px-4 text-center text-white">
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Nossa Doutrina e Fundamentos</h2>
+        <p class="text-blue-100 max-w-2xl mx-auto">Organização das forças espirituais, hierarquia e guias que regem nossa casa.</p>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-12">
+    <main class="max-w-7xl mx-auto px-4 py-10">
 
-        <!-- Seção: Comparativo de Entidades -->
-        <section id="entidades" class="mb-20">
-            <h3 class="text-3xl font-bold mb-8 text-center"><i class="fas fa-users mr-2"></i>Linhas de Trabalho</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Pretos Velhos -->
-                <div class="card-glass p-6 rounded-2xl shadow-sm border border-white hover:shadow-lg transition">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="bg-slate-800 text-white p-3 rounded-full"><i class="fas fa-ghost"></i></span>
-                        <h4 class="text-xl font-bold">Pretos Velhos</h4>
-                    </div>
-                    <p class="text-sm text-slate-600 mb-4"><strong>Saudação:</strong> Adorei as Almas!</p>
-                    <ul class="text-sm space-y-2">
-                        <li><strong>Características:</strong> Humildade, paciência e sabedoria.</li>
-                        <li><strong>Função:</strong> Conselhos e curas com ervas.</li>
-                        <li><strong>Elementos:</strong> Cachimbo, café, velas brancas/pretas.</li>
-                    </ul>
-                </div>
-                <!-- Caboclos -->
-                <div class="card-glass p-6 rounded-2xl shadow-sm border border-white hover:shadow-lg transition">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="bg-green-700 text-white p-3 rounded-full"><i class="fas fa-leaf"></i></span>
-                        <h4 class="text-xl font-bold">Caboclos</h4>
-                    </div>
-                    <p class="text-sm text-slate-600 mb-4"><strong>Saudação:</strong> Okê Caboclo!</p>
-                    <ul class="text-sm space-y-2">
-                        <li><strong>Características:</strong> Força, coragem e ligação com a mata.</li>
-                        <li><strong>Função:</strong> Proteção e limpeza espiritual.</li>
-                        <li><strong>Elementos:</strong> Arcos, flechas e charutos.</li>
-                    </ul>
-                </div>
-                <!-- Baianos -->
-                <div class="card-glass p-6 rounded-2xl shadow-sm border border-white hover:shadow-lg transition">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="bg-yellow-500 text-white p-3 rounded-full"><i class="fas fa-sun"></i></span>
-                        <h4 class="text-xl font-bold">Baianos</h4>
-                    </div>
-                    <p class="text-sm text-slate-600 mb-4"><strong>Saudação:</strong> Xetroá Bahia!</p>
-                    <ul class="text-sm space-y-2">
-                        <li><strong>Características:</strong> Fé, alegria e perseverança.</li>
-                        <li><strong>Função:</strong> Quebra de magias negativas.</li>
-                        <li><strong>Elementos:</strong> Coco, batida, chapéu de palha.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção: Mapa das Sete Linhas -->
-        <section id="setelinhas" class="mb-20 bg-white p-8 rounded-3xl shadow-xl">
-            <h3 class="text-3xl font-bold mb-8 text-center text-blue-900">Mapa das Sete Linhas</h3>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-blue-50">
-                            <th class="p-4 border-b">Linha</th>
-                            <th class="p-4 border-b">Orixá Regente</th>
-                            <th class="p-4 border-b">Pontos de Força</th>
-                            <th class="p-4 border-b">Sincretismo</th>
+        <!-- 1. Tabela Detalhada das 7 Linhas e Associações -->
+        <section id="linhas" class="mb-16">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-2"><i class="fas fa-star text-yellow-500"></i> As 7 Linhas da Umbanda</h3>
+            <div class="overflow-x-auto bg-white rounded-2xl shadow-sm border border-slate-200">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-100 text-slate-700 uppercase">
+                        <tr>
+                            <th class="p-4">Orixá</th>
+                            <th class="p-4">Cor Ritual</th>
+                            <th class="p-4">Insígnia</th>
+                            <th class="p-4">Reino/Ponto de Força</th>
+                            <th class="p-4">Ervas Principais</th>
                         </tr>
                     </thead>
-                    <tbody class="text-sm">
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 border-b font-semibold">Linha da Fé</td>
-                            <td class="p-4 border-b italic text-blue-700">Oxalá</td>
-                            <td class="p-4 border-b">Campos abertos, colinas</td>
-                            <td class="p-4 border-b">Jesus Cristo</td>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr>
+                            <td class="p-4 font-bold">Oxalá</td>
+                            <td class="p-4"><span class="badge-cor bg-white"></span> Branco Leitoso</td>
+                            <td class="p-4">Cajado/Cruz</td>
+                            <td class="p-4">Campos Abertos</td>
+                            <td class="p-4">Boldo, Tapete de Oxalá</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 border-b font-semibold">Linha da Lei</td>
-                            <td class="p-4 border-b italic text-blue-700">Ogum</td>
-                            <td class="p-4 border-b">Estradas, encruzilhadas</td>
-                            <td class="p-4 border-b">São Jorge</td>
+                        <tr>
+                            <td class="p-4 font-bold">Oxóssi</td>
+                            <td class="p-4"><span class="badge-cor bg-green-600"></span> Verde</td>
+                            <td class="p-4">Flecha</td>
+                            <td class="p-4">Mata</td>
+                            <td class="p-4">Erva-de-S. Jorge, Guiné</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 border-b font-semibold">Linha do Conhecimento</td>
-                            <td class="p-4 border-b italic text-blue-700">Oxóssi</td>
-                            <td class="p-4 border-b">Matas, florestas</td>
-                            <td class="p-4 border-b">São Sebastião</td>
+                        <tr>
+                            <td class="p-4 font-bold">Ogum</td>
+                            <td class="p-4"><span class="badge-cor bg-red-600"></span> Vermelho</td>
+                            <td class="p-4">Espada</td>
+                            <td class="p-4">Estradas / Batalhas</td>
+                            <td class="p-4">Espada-de-S. Jorge</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 border-b font-semibold">Linha da Justiça</td>
-                            <td class="p-4 border-b italic text-blue-700">Xangô</td>
-                            <td class="p-4 border-b">Pedreiras, montanhas</td>
-                            <td class="p-4 border-b">S. Jerônimo / S. João</td>
+                        <tr>
+                            <td class="p-4 font-bold">Xangô (Kao/Agodô)</td>
+                            <td class="p-4"><span class="badge-cor bg-amber-800"></span> Marrom</td>
+                            <td class="p-4">Machado (1 ou 2 lâminas)</td>
+                            <td class="p-4">Pedreira</td>
+                            <td class="p-4">Folha de Mangueira</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 border-b font-semibold">Linha da Geração</td>
-                            <td class="p-4 border-b italic text-blue-700">Iemanjá</td>
-                            <td class="p-4 border-b">Praias, beira-mar</td>
-                            <td class="p-4 border-b">N. Sra. dos Navegantes</td>
+                        <tr>
+                            <td class="p-4 font-bold">Iemanjá</td>
+                            <td class="p-4"><span class="badge-cor bg-blue-300"></span> Azul Claro</td>
+                            <td class="p-4">Conchá</td>
+                            <td class="p-4">Mar</td>
+                            <td class="p-4">Colônia, Alfazema</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Iansã (Oyá)</td>
+                            <td class="p-4"><span class="badge-cor bg-red-500"></span> Vermelho/Rosa</td>
+                            <td class="p-4">Eruexim</td>
+                            <td class="p-4">Ventos / Tempestades</td>
+                            <td class="p-4">Onze-horas, Embaúba</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Nanã</td>
+                            <td class="p-4"><span class="badge-cor bg-purple-700"></span> Roxo / Lilás</td>
+                            <td class="p-4">Ibiri</td>
+                            <td class="p-4">Poços, Mangues, Lama</td>
+                            <td class="p-4">Mamona, Babosa</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- Seção: Oferendas Dinâmicas -->
-        <section id="oferendas" class="mb-20">
-            <h3 class="text-3xl font-bold mb-8 text-center">Guia Prático de Oferendas</h3>
-            <div class="flex flex-col md:flex-row gap-8">
-                <!-- Menu Lateral -->
-                <div class="md:w-1/3 space-y-2">
-                    <button onclick="showOferenda('oxala')" class="w-full text-left p-4 rounded-xl bg-white shadow-sm hover:bg-blue-50 transition active-btn">🕊️ Oxalá (Fé)</button>
-                    <button onclick="showOferenda('ogum')" class="w-full text-left p-4 rounded-xl bg-white shadow-sm hover:bg-blue-50 transition">⚔️ Ogum (Lei)</button>
-                    <button onclick="showOferenda('oxossi')" class="w-full text-left p-4 rounded-xl bg-white shadow-sm hover:bg-blue-50 transition">🏹 Oxóssi (Conhecimento)</button>
-                    <button onclick="showOferenda('iemanja')" class="w-full text-left p-4 rounded-xl bg-white shadow-sm hover:bg-blue-50 transition">🌊 Iemanjá (Geração)</button>
+        <!-- 2. Guias Chefes (Mãe e Pai) -->
+        <section id="guias" class="mb-16">
+            <h3 class="text-2xl font-bold mb-6"><i class="fas fa-user-shield text-blue-600"></i> Guias Chefes da Casa</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Coluna Mãe -->
+                <div class="bg-pink-50 p-6 rounded-2xl border border-pink-100">
+                    <h4 class="text-xl font-bold text-pink-800 mb-4 border-b border-pink-200 pb-2">Falange da Mãe</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><strong>Preto Velho:</strong> Vó Maria Conga</li>
+                        <li><strong>Pomba Gira:</strong> Maria Padilha</li>
+                        <li><strong>Exu:</strong> Tranca Rua (Mata/Encruzilhada)</li>
+                        <li><strong>Marinheiro:</strong> Chico Beira Mar</li>
+                        <li><strong>Boiadeiro:</strong> Seu João Pantaneiro</li>
+                        <li><strong>Baiana:</strong> Rosa Maria do Livramento</li>
+                        <li><strong>Cigana:</strong> Rúbia</li>
+                        <li><strong>Ogum:</strong> Rompe Mata (Coração das Matas)</li>
+                    </ul>
                 </div>
-                <!-- Detalhes -->
-                <div id="oferenda-display" class="md:w-2/3 bg-white p-8 rounded-3xl shadow-lg border-2 border-blue-100">
-                    <h4 id="ofer-title" class="text-2xl font-bold text-blue-800 mb-4 underline">Selecione uma linha ao lado</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <p class="font-bold"><i class="fas fa-utensils mr-2"></i>Comidas:</p>
-                            <p id="ofer-food" class="text-slate-600">-</p>
-                        </div>
-                        <div>
-                            <p class="font-bold"><i class="fas fa-wine-glass mr-2"></i>Bebidas:</p>
-                            <p id="ofer-drink" class="text-slate-600">-</p>
-                        </div>
-                        <div>
-                            <p class="font-bold"><i class="fas fa-seedling mr-2"></i>Ervas:</p>
-                            <p id="ofer-herb" class="text-slate-600">-</p>
-                        </div>
-                        <div>
-                            <p class="font-bold"><i class="fas fa-map-marker-alt mr-2"></i>Local de Entrega:</p>
-                            <p id="ofer-local" class="text-slate-600">-</p>
-                        </div>
-                    </div>
+                <!-- Coluna Pai -->
+                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                    <h4 class="text-xl font-bold text-blue-800 mb-4 border-b border-blue-200 pb-2">Falange do Pai</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><strong>Preto Velho:</strong> Pai Joaquim das Almas</li>
+                        <li><strong>Marinheiro:</strong> Zé da Maré</li>
+                        <li><strong>Boiadeiro:</strong> João da Boiada Preta</li>
+                        <li><strong>Baiano:</strong> Zé do Cangaço</li>
+                        <li><strong>Ogum:</strong> Ogum Mege / Caboclo da Lua</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Calendário Ritual -->
-        <section id="calendario" class="mb-20">
-            <h3 class="text-3xl font-bold mb-8 text-center">Calendário Anual Ritual</h3>
-            <div class="space-y-4">
-                <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-l-4 border-blue-500">
-                    <span class="font-bold text-blue-800 min-w-[100px]">Janeiro</span>
-                    <div>
-                        <p class="font-semibold">01/01 - Oxalá</p>
-                        <p class="text-xs text-slate-500">Paz, fé e renovação espiritual.</p>
+        <!-- 3. Hierarquia e Lideranças -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            
+            <!-- Hierarquia (Lista) -->
+            <section id="hierarquia" class="lg:col-span-1 bg-white p-6 rounded-2xl shadow-sm border">
+                <h3 class="text-xl font-bold mb-4">Hierarquia da Casa</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="bg-blue-800 text-white text-xs font-bold px-2 py-1 rounded">CCT</span>
+                        <p class="text-sm">Comandante Chefe (Babalaô)</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">CC</span>
+                        <p class="text-sm">Cambone Chefe</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="bg-blue-400 text-white text-xs font-bold px-2 py-1 rounded">Ogans</span>
+                        <p class="text-sm">Harmonia e Atabaques</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="bg-slate-500 text-white text-xs font-bold px-2 py-1 rounded">PP/MP</span>
+                        <p class="text-sm">Pai e Mãe Pequena</p>
+                    </div>
+                    <hr>
+                    <div class="text-xs text-slate-500 italic">
+                        Outros cargos: Sub-Comandante (SCCT), Chefe de Terreiro (CT), Sub-Chefe (SCT), Fiscais.
                     </div>
                 </div>
-                <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-l-4 border-blue-300">
-                    <span class="font-bold text-blue-800 min-w-[100px]">Fevereiro</span>
-                    <div>
-                        <p class="font-semibold">02/02 - Iemanjá | 04/02 - Oxum</p>
-                        <p class="text-xs text-slate-500">Maternidade, proteção e amor nas águas.</p>
+            </section>
+
+            <!-- Lideranças (Cards) -->
+            <section id="lideranças" class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Mãe Andrea -->
+                <div class="card-liderança p-6 rounded-2xl shadow-md border border-blue-100">
+                    <h4 class="text-lg font-bold text-blue-900 mb-1">Mãe Andrea</h4>
+                    <p class="text-xs text-slate-500 mb-4 uppercase tracking-widest">Liderança Espiritual</p>
+                    <div class="text-sm space-y-2">
+                        <p><strong>Pai de Cabeça:</strong> Oxóssi</p>
+                        <p><strong>Sincretismo:</strong> S. João Sebastião (20/Jan)</p>
+                        <p><strong>Entidade:</strong> Caboclo Arranca Toco</p>
+                        <hr>
+                        <p><strong>Mãe de Cabeça:</strong> Oxum</p>
+                        <p><strong>Sincretismo:</strong> N. Sra. Aparecida (12/Out)</p>
+                        <p><strong>Entidade:</strong> Cabocla Sol Nascente</p>
                     </div>
                 </div>
-                <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-l-4 border-red-500">
-                    <span class="font-bold text-blue-800 min-w-[100px]">Abril</span>
-                    <div>
-                        <p class="font-semibold">23/04 - Ogum</p>
-                        <p class="text-xs text-slate-500">Abertura de caminhos e força guerreira.</p>
+                <!-- Pai Vigilato -->
+                <div class="card-liderança p-6 rounded-2xl shadow-md border border-blue-100">
+                    <h4 class="text-lg font-bold text-blue-900 mb-1">Pai Vigilato</h4>
+                    <p class="text-xs text-slate-500 mb-4 uppercase tracking-widest">Liderança Espiritual</p>
+                    <div class="text-sm space-y-2">
+                        <p><strong>Pai de Cabeça:</strong> Xangô Cão</p>
+                        <p><strong>Sincretismo:</strong> São João Batista (24/Jun)</p>
+                        <p><strong>Entidade:</strong> Caboclo Campo Dourado</p>
+                        <hr>
+                        <p><strong>Mãe de Cabeça:</strong> Iemanjá</p>
+                        <p><strong>Sincretismo:</strong> N. Sra. dos Navegantes (08/Dez)</p>
+                        <p><strong>Entidade:</strong> Cabocla Estrela do Mar Azul</p>
                     </div>
                 </div>
-                <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-l-4 border-slate-700">
-                    <span class="font-bold text-blue-800 min-w-[100px]">Maio</span>
-                    <div>
-                        <p class="font-semibold">13/05 - Pretos Velhos</p>
-                        <p class="text-xs text-slate-500">Dia da abolição, sabedoria e ancestralidade.</p>
+            </section>
+        </div>
+
+        <!-- 4. Linhas de Consulta e Defumação -->
+        <section id="consultas" class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border">
+                    <h3 class="text-xl font-bold mb-4"><i class="fas fa-comments text-green-600"></i> Linhas de Consulta</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Preto Velho</span>
+                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Marinheiro</span>
+                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Baianos</span>
+                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Ciganos</span>
+                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Exu</span>
+                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Malandro</span>
+                        <span class="px-3 py-1 bg-slate-100 rounded-full text-xs">Boiadeiro</span>
                     </div>
+                </div>
+                <div class="bg-slate-800 text-white p-8 rounded-3xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-4 text-blue-300"><i class="fas fa-smog"></i> Defumação</h3>
+                    <p class="text-sm opacity-90 leading-relaxed">
+                        Utilizada para limpar tanto o ambiente quanto o corpo. Sua função é proteger a casa e preparar o campo vibratório para os trabalhos que serão realizados, removendo energias densas.
+                    </p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-blue-900 text-white py-10 text-center">
-        <p class="mb-2 italic text-blue-200">"Umbanda é saber, é luz, é caridade."</p>
-        <p class="text-sm opacity-70">© 2024 Guia de Estudos Umbanda Digital</p>
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-white font-bold mb-2">Umbanda: Sabedoria e Caridade</p>
+            <p class="text-xs mb-6 italic">"As cores podem variar conforme a tradição de cada terreiro, mas o fundamento é o amor."</p>
+            <div class="flex justify-center gap-6 text-xl">
+                <i class="fab fa-instagram hover:text-white cursor-pointer"></i>
+                <i class="fab fa-facebook hover:text-white cursor-pointer"></i>
+                <i class="fab fa-whatsapp hover:text-white cursor-pointer"></i>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        const dataOferendas = {
-            oxala: {
-                title: "Oxalá (Linha da Fé)",
-                food: "Canjica branca, milho branco, arroz doce, frutas brancas",
-                drink: "Água, leite, vinho tinto, água de coco",
-                herb: "Boldo, algodão, alecrim, hortelã",
-                local: "Campos abertos, colinas, portas de igrejas"
-            },
-            ogum: {
-                title: "Ogum (Linha da Lei)",
-                food: "Feijão preto, carne vermelha, farofa de dendê",
-                drink: "Cerveja branca, vinho tinto, cachaça",
-                herb: "Espada de São Jorge, arruda, guiné",
-                local: "Estradas, encruzilhadas, porteiras"
-            },
-            oxossi: {
-                title: "Oxóssi (Conhecimento)",
-                food: "Frutas, milho verde, carne de caça",
-                drink: "Vinho branco, cerveja clara",
-                herb: "Erva-doce, alecrim, folhas de mata",
-                local: "Matas, florestas, cachoeiras"
-            },
-            iemanja: {
-                title: "Iemanjá (Geração)",
-                food: "Peixes, arroz doce, bolos brancos",
-                drink: "Champanhe, vinho branco",
-                herb: "Alfazema, manjericão, lírio-do-mar",
-                local: "Praias, rios, beira-mar"
-            }
-        };
-
-        function showOferenda(key) {
-            const item = dataOferendas[key];
-            document.getElementById('ofer-title').innerText = item.title;
-            document.getElementById('ofer-food').innerText = item.food;
-            document.getElementById('ofer-drink').innerText = item.drink;
-            document.getElementById('ofer-herb').innerText = item.herb;
-            document.getElementById('ofer-local').innerText = item.local;
-        }
-
-        // Inicia com Oxalá
-        window.onload = () => showOferenda('oxala');
-    </script>
 </body>
 </html>
