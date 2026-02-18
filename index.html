@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doutrina e Fundamentos - Umbanda</title>
+    <title>Doutrina Umbanda - Site Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -21,74 +21,102 @@
             background: var(--cinza-claro); 
             color: var(--texto); 
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* HEADER RESPONSIVO */
+        /* --- CABEÇALHO --- */
         header {
             background: linear-gradient(135deg, var(--azul-escuro) 0%, #1a3a5f 100%);
             color: var(--branco);
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
             border-bottom: 5px solid var(--ouro);
         }
-        header h1 { font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 5vw, 2.8rem); }
+        header h1 { font-family: 'Cinzel', serif; font-size: clamp(1.4rem, 5vw, 2.5rem); }
 
-        /* MENU RESPONSIVO */
-        .nav-container {
+        /* --- NAVEGAÇÃO / MENU SUSPENSO --- */
+        .navbar {
             background: var(--branco);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 2000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        nav {
+        .nav-content {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 15px 20px;
         }
 
-        .menu-toggle {
+        .logo { font-weight: bold; color: var(--azul-escuro); font-size: 1.2rem; }
+
+        /* Ícone Hambúrguer (Escondido no PC) */
+        .menu-icon {
             display: none;
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+            background: none;
+            border: none;
         }
-
-        .menu-toggle span {
+        .menu-icon span {
             width: 25px;
             height: 3px;
             background: var(--azul-escuro);
             border-radius: 2px;
+            transition: 0.3s;
         }
 
+        /* Links da Navegação */
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 15px;
+            gap: 10px;
         }
-
         .nav-links a {
             text-decoration: none;
             color: var(--azul-escuro);
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            padding: 10px;
+            padding: 10px 15px;
+            border-radius: 5px;
             transition: 0.3s;
         }
+        .nav-links a:hover { background: #f0f0f0; color: var(--ouro); }
 
-        /* MAIN CONTAINER */
-        .container { 
-            max-width: 1200px; 
-            margin: 20px auto; 
-            padding: 0 15px; 
+        /* --- ESTILO MOBILE (MENU SUSPENSO) --- */
+        @media (max-width: 850px) {
+            .menu-icon { display: flex; }
+
+            .nav-links {
+                display: none; /* Esconde por padrão no mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* Aparece logo abaixo da barra */
+                left: 0;
+                width: 100%;
+                background: var(--branco);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                padding: 10px 0;
+                border-top: 1px solid #eee;
+            }
+
+            .nav-links.active { display: flex; } /* Mostra quando clicado */
+
+            .nav-links a {
+                width: 100%;
+                padding: 15px 25px;
+                border-radius: 0;
+                border-bottom: 1px solid #f9f9f9;
+            }
         }
 
+        /* --- CONTEÚDO --- */
+        .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
         .content-box {
             background: var(--branco);
             padding: clamp(15px, 5vw, 30px);
@@ -96,143 +124,91 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
-        .tab-content { display: none; animation: fadeIn 0.4s; }
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
         .tab-content.active { display: block; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        h2 { 
-            font-family: 'Cinzel', serif; 
-            color: var(--azul-escuro); 
-            border-left: 5px solid var(--ouro); 
-            padding-left: 15px; 
-            margin: 30px 0 20px;
-            font-size: 1.5rem;
-        }
+        h2 { font-family: 'Cinzel', serif; color: var(--azul-escuro); border-left: 5px solid var(--ouro); padding-left: 15px; margin: 20px 0; }
 
-        /* GRIDS QUE SE AJUSTAM */
-        .grid-auto {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-
-        /* TABELAS QUE FUNCIONAM NO CELULAR */
-        .table-scroll {
-            width: 100%;
-            overflow-x: auto;
-            margin: 20px 0;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 600px; /* Garante que a tabela não esprema demais */
-        }
-
-        th { background: var(--azul-escuro); color: white; text-align: left; padding: 12px; }
+        /* Tabelas Responsivas */
+        .table-scroll { width: 100%; overflow-x: auto; margin: 20px 0; border: 1px solid #ddd; border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        th { background: var(--azul-escuro); color: white; padding: 12px; text-align: left; }
         td { padding: 12px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
 
-        /* ACORDEÃO PARA O CELULAR */
+        /* Cards Hierarquia */
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 20px; }
+        .card { padding: 20px; border-radius: 10px; border: 1px solid #eee; background: #fff; }
+
+        /* Acordeão Calendário */
         .accordion {
-            background: #f8f8f8;
-            color: var(--azul-escuro);
-            cursor: pointer;
+            background: #f1f1f1;
             padding: 15px;
             width: 100%;
-            border: 1px solid #ddd;
+            border: none;
             text-align: left;
-            font-weight: 600;
+            font-weight: bold;
             margin-top: 5px;
+            cursor: pointer;
             border-radius: 5px;
             display: flex;
             justify-content: space-between;
         }
+        .panel { display: none; padding: 15px; background: #fff; border: 1px solid #f1f1f1; border-top: none; }
 
-        .panel {
-            display: none;
-            padding: 15px;
-            background: white;
-            border: 1px solid #ddd;
-            border-top: none;
-        }
-
-        /* MEDIA QUERIES PARA CELULAR */
-        @media (max-width: 768px) {
-            .menu-toggle { display: flex; }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 50px;
-                left: 0;
-                width: 100%;
-                background: var(--branco);
-                padding: 20px;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-            }
-            .nav-links.show { display: flex; }
-            header { padding: 40px 15px; }
-        }
-
-        footer { text-align: center; padding: 40px; background: var(--azul-escuro); color: white; margin-top: 50px; }
+        footer { text-align: center; padding: 30px; background: var(--azul-escuro); color: white; margin-top: 40px; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Doutrina e Fundamentos</h1>
-    <p>Guia Completo de Estudos e Rituais</p>
+    <p>Guia Digital da Nossa Casa</p>
 </header>
 
-<div class="nav-container">
-    <nav>
-        <div style="font-weight: bold; color: var(--ouro);">UMBANDA</div>
-        <div class="menu-toggle" id="mobile-menu">
+<div class="navbar">
+    <div class="nav-content">
+        <div class="logo">UMBANDA</div>
+        
+        <!-- Botão Hambúrguer -->
+        <button class="menu-icon" id="menu-btn" aria-label="Abrir Menu">
             <span></span><span></span><span></span>
-        </div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#" onclick="openTab('inicio')">Doutrina</a></li>
-            <li><a href="#" onclick="openTab('linhas')">7 Linhas</a></li>
-            <li><a href="#" onclick="openTab('oferendas')">Oferendas</a></li>
-            <li><a href="#" onclick="openTab('calendario')">Calendário</a></li>
-            <li><a href="#" onclick="openTab('hierarquia')">Hierarquia</a></li>
+        </button>
+
+        <!-- Menu de Links -->
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="javascript:void(0)" onclick="changeTab('doutrina')">Doutrina</a></li>
+            <li><a href="javascript:void(0)" onclick="changeTab('linhas')">As 7 Linhas</a></li>
+            <li><a href="javascript:void(0)" onclick="changeTab('oferendas')">Oferendas</a></li>
+            <li><a href="javascript:void(0)" onclick="changeTab('calendario')">Calendário</a></li>
+            <li><a href="javascript:void(0)" onclick="changeTab('hierarquia')">Hierarquia</a></li>
         </ul>
-    </nav>
+    </div>
 </div>
 
 <div class="container">
     <div class="content-box">
 
-        <!-- ABA INICIAL -->
-        <div id="inicio" class="tab-content active">
-            <h2>Princípios das Linhas</h2>
-            <p>Cada linha organiza falanges de entidades que trabalham de acordo com o princípio do Orixá regente.</p>
-            <div class="grid-auto" style="margin-top:20px;">
+        <!-- ABA 1: DOUTRINA -->
+        <div id="doutrina" class="tab-content active">
+            <h2>Doutrina e Defumação</h2>
+            <p>A defumação serve para limpar o ambiente e o corpo, protegendo a casa e os trabalhos que serão realizados.</p>
+            <div class="grid-cards">
                 <div class="card">
-                    <h3>Defumação</h3>
-                    <p>Limpa o ambiente e o corpo, protegendo a casa para o início dos trabalhos.</p>
+                    <h3>Linhas de Consulta</h3>
+                    <p>Bonhadeiro, Marinheiro, Preto Velho, Baiano, Cigano, Exu e Malandro.</p>
                 </div>
                 <div class="card">
-                    <h3>Linhas de Trabalho</h3>
-                    <p>Caboclos, Pretos Velhos, Crianças, Baianos, Marinheiros, Boiadeiros, Ciganos e Exus.</p>
+                    <h3>Como Funcionam</h3>
+                    <p>Cada linha organiza falanges de entidades que trabalham de acordo com o Orixá regente.</p>
                 </div>
             </div>
         </div>
 
-        <!-- ABA 7 LINHAS -->
+        <!-- ABA 2: 7 LINHAS -->
         <div id="linhas" class="tab-content">
-            <h2>Organização Espiritual</h2>
+            <h2>As 7 Linhas da Umbanda</h2>
             <div class="table-scroll">
                 <table>
                     <thead>
@@ -240,23 +216,23 @@
                             <th>Linha</th>
                             <th>Orixá Regente</th>
                             <th>Princípio</th>
-                            <th>Natureza</th>
+                            <th>Local</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Linha da Fé</td><td>Oxalá</td><td>Fé e Equilíbrio</td><td>Campos Abertos</td></tr>
-                        <tr><td>Linha da Lei</td><td>Ogum</td><td>Ordem e Lei</td><td>Estradas</td></tr>
-                        <tr><td>Linha do Conhecimento</td><td>Oxóssi</td><td>Sabedoria</td><td>Matas</td></tr>
-                        <tr><td>Linha da Justiça</td><td>Xangô</td><td>Razão e Equilíbrio</td><td>Pedreiras</td></tr>
-                        <tr><td>Linha da Geração</td><td>Iemanjá</td><td>Vida e Renovação</td><td>Mar</td></tr>
-                        <tr><td>Linha da Movimentação</td><td>Iansã</td><td>Transformação</td><td>Ventos</td></tr>
-                        <tr><td>Linha da Evolução</td><td>Omulu</td><td>Cura espiritual</td><td>Cemitérios</td></tr>
+                        <tr><td>Fé</td><td>Oxalá</td><td>Espiritualidade e Paz</td><td>Campos Abertos</td></tr>
+                        <tr><td>Lei</td><td>Ogum</td><td>Ordem e Disciplina</td><td>Estradas</td></tr>
+                        <tr><td>Conhecimento</td><td>Oxóssi</td><td>Sabedoria e Expansão</td><td>Matas</td></tr>
+                        <tr><td>Justiça</td><td>Xangô</td><td>Julgamento e Retidão</td><td>Pedreiras</td></tr>
+                        <tr><td>Geração</td><td>Iemanjá</td><td>Vida e Renovação</td><td>Mar</td></tr>
+                        <tr><td>Movimentação</td><td>Iansã</td><td>Transformação</td><td>Ventos</td></tr>
+                        <tr><td>Evolução</td><td>Omulu</td><td>Cura e Transmutação</td><td>Cemitério</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- ABA OFERENDAS -->
+        <!-- ABA 3: OFERENDAS -->
         <div id="oferendas" class="tab-content">
             <h2>Guia de Oferendas</h2>
             <div class="table-scroll">
@@ -265,61 +241,57 @@
                         <tr>
                             <th>Orixá</th>
                             <th>Comidas</th>
-                            <th>Bebidas</th>
                             <th>Ervas</th>
+                            <th>Flores</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Oxalá</td><td>Canjica branca, arroz doce</td><td>Água, leite</td><td>Boldo, alecrim</td></tr>
-                        <tr><td>Ogum</td><td>Feijão preto, churrasco</td><td>Cerveja branca</td><td>Espada de S. Jorge</td></tr>
-                        <tr><td>Oxóssi</td><td>Frutas variadas, milho</td><td>Vinho branco</td><td>Guiné, Samambaia</td></tr>
-                        <tr><td>Iemanjá</td><td>Peixe, arroz doce</td><td>Champanhe</td><td>Alfazema</td></tr>
-                        <tr><td>Preto Velho</td><td>Café, bolo de fubá, fumo</td><td>Vinho tinto</td><td>Arruda, Guiné</td></tr>
+                        <tr><td>Oxalá</td><td>Canjica branca, milho branco</td><td>Boldo, Alecrim</td><td>Rosas Brancas</td></tr>
+                        <tr><td>Ogum</td><td>Feijão preto, carne vermelha</td><td>Espada de S. Jorge</td><td>Cravos Vermelhos</td></tr>
+                        <tr><td>Iemanjá</td><td>Peixe, arroz doce, bolos</td><td>Alfazema</td><td>Rosas Brancas e Azuis</td></tr>
+                        <tr><td>Oxóssi</td><td>Frutas variadas, milho verde</td><td>Samambaia, Guiné</td><td>Flores do Campo</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- ABA CALENDÁRIO -->
+        <!-- ABA 4: CALENDÁRIO -->
         <div id="calendario" class="tab-content">
-            <h2>Datas e Comemorações</h2>
-            <button class="accordion">JANEIRO - FEVEREIRO <span>+</span></button>
+            <h2>Calendário Ritual</h2>
+            <button class="accordion">JANEIRO A JUNHO <span>▼</span></button>
             <div class="panel">
-                <p><strong>01/01:</strong> Oxalá (Jesus Cristo)</p>
                 <p><strong>20/01:</strong> Oxóssi (São Sebastião)</p>
                 <p><strong>02/02:</strong> Iemanjá (N. Sra. Navegantes)</p>
-            </div>
-
-            <button class="accordion">ABRIL - MAIO - JUNHO <span>+</span></button>
-            <div class="panel">
                 <p><strong>23/04:</strong> Ogum (São Jorge)</p>
                 <p><strong>13/05:</strong> Pretos Velhos (Abolição)</p>
                 <p><strong>24/06:</strong> Xangô (São João Batista)</p>
             </div>
 
-            <button class="accordion">SETEMBRO - DEZEMBRO <span>+</span></button>
+            <button class="accordion">JULHO A DEZEMBRO <span>▼</span></button>
             <div class="panel">
+                <p><strong>26/07:</strong> Nanã (Sant'Ana)</p>
                 <p><strong>27/09:</strong> Cosme e Damião (Crianças)</p>
+                <p><strong>15/11:</strong> Fundação da Umbanda</p>
                 <p><strong>04/12:</strong> Iansã (Santa Bárbara)</p>
-                <p><strong>25/12:</strong> Oxalá (Natal)</p>
+                <p><strong>08/12:</strong> Oxum (N. Sra. Conceição)</p>
             </div>
         </div>
 
-        <!-- ABA HIERARQUIA -->
+        <!-- ABA 5: HIERARQUIA -->
         <div id="hierarquia" class="tab-content">
-            <h2>Hierarquia da Casa</h2>
-            <div class="grid-auto">
-                <div class="card" style="border-top: 4px solid var(--ouro);">
-                    <h3>Comando Geral (CCT)</h3>
+            <h2>Hierarquia e Liderança</h2>
+            <div class="grid-cards">
+                <div class="card" style="border-top: 5px solid var(--azul-escuro);">
+                    <h3>Comando Chefe (CCT)</h3>
                     <p>Babalaô Pai Vigilato, Mãe Andrea e Yan</p>
                 </div>
                 <div class="card">
-                    <h3>Corpo Auxiliar</h3>
-                    <p>Cambone Chefe, Ogans (Harmonia), Pai/Mãe Pequena.</p>
+                    <h3>Corpo Técnico</h3>
+                    <p>Cambone Chefe, Ogans (Harmonia), Pai Pequeno e Mãe Pequena.</p>
                 </div>
                 <div class="card">
-                    <h3>Chefes de Terreiro</h3>
-                    <p>Abaré (CT), Abaré Mirim (SCT) e Fiscais.</p>
+                    <h3>Liderança Espiritual</h3>
+                    <p>Mãe Andrea: Oxóssi e Oxum<br>Pai Vigilato: Xangô e Iemanjá</p>
                 </div>
             </div>
         </div>
@@ -328,30 +300,33 @@
 </div>
 
 <footer>
-    <p>&copy; 2024 Doutrina de Umbanda</p>
-    <small>Acessível via Computador e Celular</small>
+    <p>© 2024 Portal de Doutrina e Fundamentos</p>
 </footer>
 
 <script>
-    // Gerenciador de Abas
-    function openTab(tabId) {
-        const contents = document.querySelectorAll('.tab-content');
-        contents.forEach(content => content.style.display = 'none');
-        
-        document.getElementById(tabId).style.display = 'block';
-        
-        // Fecha o menu mobile ao clicar em um link
-        if(window.innerWidth <= 768) {
-            document.getElementById('nav-links').classList.remove('show');
-        }
-    }
+    // Gerenciar o Menu Suspenso no Mobile
+    const menuBtn = document.getElementById('menu-btn');
+    const navMenu = document.getElementById('nav-menu');
 
-    // Menu Mobile Toggle
-    document.getElementById('mobile-menu').addEventListener('click', function() {
-        document.getElementById('nav-links').classList.toggle('show');
+    menuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
     });
 
-    // Acordeão
+    // Função para mudar de Aba
+    function changeTab(tabId) {
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.classList.remove('active'));
+        
+        document.getElementById(tabId).classList.add('active');
+
+        // Fecha o menu suspenso após clicar (no celular)
+        navMenu.classList.remove('active');
+        
+        // Rola para o topo do conteúdo
+        window.scrollTo({ top: 300, behavior: 'smooth' });
+    }
+
+    // Gerenciar Acordeão
     const acc = document.getElementsByClassName("accordion");
     for (let i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function() {
