@@ -98,17 +98,24 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
         h2 { font-family: 'Cinzel', serif; color: var(--azul-escuro); border-left: 5px solid var(--ouro); padding-left: 15px; margin: 25px 0 15px; }
-        h3 { color: var(--azul-escuro); margin-bottom: 10px; font-size: 1.1rem; }
+        h3 { color: var(--azul-escuro); margin-bottom: 10px; font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 30px; }
 
         /* TABELAS RESPONSIVAS */
         .table-scroll { width: 100%; overflow-x: auto; margin: 20px 0; border: 1px solid #ddd; border-radius: 8px; }
-        table { width: 100%; border-collapse: collapse; min-width: 700px; }
+        table { width: 100%; border-collapse: collapse; min-width: 800px; }
         th { background: var(--azul-escuro); color: white; padding: 12px; text-align: left; }
-        td { padding: 12px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        td { padding: 12px; border-bottom: 1px solid #eee; font-size: 0.85rem; vertical-align: top; }
         tr:hover { background-color: #f9f9f9; }
 
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 20px; }
-        .card { padding: 20px; border-radius: 10px; border: 1px solid #eee; background: #fff; border-top: 3px solid var(--ouro); }
+        /* CARDS */
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { padding: 20px; border-radius: 10px; border: 1px solid #eee; background: #fff; border-top: 4px solid var(--ouro); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+        /* OBSERVAÇÕES */
+        .obs-box { background: #fffdf2; border-left: 5px solid var(--ouro); padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .obs-box ul { list-style: none; }
+        .obs-box ul li { margin-bottom: 8px; font-size: 0.9rem; position: relative; padding-left: 20px; }
+        .obs-box ul li::before { content: "•"; color: var(--ouro); font-weight: bold; position: absolute; left: 0; }
 
         .accordion {
             background: #f1f1f1; padding: 15px; width: 100%; border: none;
@@ -136,7 +143,7 @@
         <ul class="nav-links" id="nav-menu">
             <li><a href="javascript:void(0)" onclick="changeTab('doutrina')">Doutrina</a></li>
             <li><a href="javascript:void(0)" onclick="changeTab('linhas')">As 7 Linhas</a></li>
-            <li><a href="javascript:void(0)" onclick="changeTab('oferendas')">Oferendas</a></li>
+            <li><a href="javascript:void(0)" onclick="changeTab('trabalhamos')">Trabalhamos</a></li>
             <li><a href="javascript:void(0)" onclick="changeTab('calendario')">Calendário</a></li>
             <li><a href="javascript:void(0)" onclick="changeTab('hierarquia')">Hierarquia</a></li>
         </ul>
@@ -146,11 +153,9 @@
 <div class="container">
     <div class="content-box">
 
-        <!-- ABA 1: DOUTRINA (ATUALIZADA) -->
+        <!-- ABA 1: DOUTRINA -->
         <div id="doutrina" class="tab-content active">
             <h2>Princípios das Linhas</h2>
-            <p>Na Umbanda, as 7 Linhas são uma forma de organizar as forças espirituais. Cada linha representa um princípio fundamental da vida.</p>
-            
             <div class="table-scroll">
                 <table>
                     <thead>
@@ -189,74 +194,301 @@
             </div>
         </div>
 
-        <!-- OUTRAS ABAS PERMANECEM IGUAIS PARA MANTER A ESTRUTURA COMPLETA -->
+        <!-- ABA 2: AS 7 LINHAS -->
         <div id="linhas" class="tab-content">
-            <h2>Mapa de Conexões</h2>
+            <h2>Associações Tradicionais dos Orixás e Entidades</h2>
             <div class="table-scroll">
                 <table>
                     <thead>
                         <tr>
-                            <th>Orixá</th>
-                            <th>Cor Ritual</th>
+                            <th>Entidade/Orixá</th>
                             <th>Insígnia</th>
-                            <th>Reino / Ponto de Força</th>
+                            <th>Reino</th>
+                            <th>Erva</th>
+                            <th>Cor</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Oxalá</td><td>Branco Leitoso</td><td>Cajado / Cruz</td><td>Campos Abertos</td></tr>
-                        <tr><td>Ogum</td><td>Vermelho</td><td>Espada</td><td>Estradas / Batalhas</td></tr>
-                        <tr><td>Oxóssi</td><td>Verde</td><td>Flecha</td><td>Mata</td></tr>
-                        <tr><td>Xangô</td><td>Marrom</td><td>Machado</td><td>Pedreira</td></tr>
-                        <tr><td>Iemanjá</td><td>Azul Claro</td><td>Conchá</td><td>Mar</td></tr>
-                        <tr><td>Iansã</td><td>Vermelho / Rosa</td><td>Eruexim (Chicote)</td><td>Ventos / Tempestades</td></tr>
+                        <tr><td>Oxóssi</td><td>Flexa</td><td>Mata</td><td>Erva-de-São-Jorge, Guiné</td><td>Verde</td></tr>
+                        <tr><td>Ogum</td><td>Espada</td><td>Estradas, batalhas</td><td>Espada-de-São-Jorge</td><td>Vermelho</td></tr>
+                        <tr><td>Xangô Agodô</td><td>Machado</td><td>Pedreira</td><td>Folha de mangueira, jurubeba</td><td>Marrom / Vermelho</td></tr>
+                        <tr><td>Xangô Kao</td><td>Machado de duas lâminas</td><td>Pedreira</td><td>Folha de mangueira, gameleira</td><td>Marrom / Branco</td></tr>
+                        <tr><td>Iemanjá</td><td>Conchá</td><td>Mar</td><td>Colônia, alfazema</td><td>Azul-claro</td></tr>
+                        <tr><td>Oxum</td><td>Espelho</td><td>Rio</td><td>Colônia, camomila</td><td>Amarelo</td></tr>
+                        <tr><td>Iansã (Oyá)</td><td>Eruexim (chicote)</td><td>Ventos, tempestades</td><td>Onze-horas, jequitibá-rosa, embaúba, erva-prata</td><td>Vermelho / Rosa / Amarelo</td></tr>
+                        <tr><td>Nanã</td><td>Ibiri (cetro)</td><td>Poços, mangues, lama</td><td>Folha de mamona, babosa, espinheira-santa</td><td>Roxo / Lilás</td></tr>
+                        <tr><td>Cosme e Damião</td><td>Brinquedo</td><td>Infância</td><td>Camomila</td><td>Rosa / Azul-claro</td></tr>
+                        <tr><td>Preto Velho</td><td>Caximbo</td><td>Terreiro, sabedoria ancestral</td><td>Café, arruda</td><td>Branco / Preto</td></tr>
                     </tbody>
                 </table>
             </div>
-        </div>
 
-        <div id="oferendas" class="tab-content">
-            <h2>Guia de Oferendas e Ervas</h2>
+            <div class="obs-box">
+                <h4>Observações Importantes</h4>
+                <ul>
+                    <li><strong>Nanã:</strong> Considerada a mais velha das Yabás, ligada à sabedoria e à ancestralidade, com insígnia do Ibiri e cores roxo/lilás.</li>
+                    <li><strong>Iansã:</strong> Associada ao dinamismo e às tempestades, suas ervas incluem onze-horas e jequitibá-rosa.</li>
+                    <li><strong>Xangô:</strong> Tem diferentes qualidades (Agodô, Kao), mas sempre ligado à justiça e ao poder das pedreiras.</li>
+                    <li><strong>Cores:</strong> Podem variar conforme a tradição de cada terreiro, mas os padrões acima são os mais difundidos.</li>
+                </ul>
+            </div>
+
+            <h3>Comparativo entre Linhas da Umbanda</h3>
             <div class="table-scroll">
                 <table>
                     <thead>
                         <tr>
-                            <th>Orixá</th>
-                            <th>Comidas</th>
-                            <th>Ervas Principais</th>
+                            <th>Linha/Entidade</th>
+                            <th>Aparência</th>
+                            <th>Características</th>
+                            <th>Funções principais</th>
+                            <th>Elementos associados</th>
+                            <th>Saudação</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Oxalá</td><td>Canjica branca, milho branco</td><td>Boldo, Tapete de Oxalá</td></tr>
-                        <tr><td>Ogum</td><td>Feijão preto, carne vermelha</td><td>Espada de S. Jorge</td></tr>
-                        <tr><td>Oxóssi</td><td>Frutas variadas, milho verde</td><td>Erva-de-S. Jorge, Guiné</td></tr>
-                        <tr><td>Iemanjá</td><td>Peixe, arroz doce</td><td>Colônia, Alfazema</td></tr>
+                        <tr><td>Pretos Velhos</td><td>Anciãos negros, sentados em banquinhos</td><td>Humildade, paciência, sabedoria</td><td>Conselhos, orientação, curas, descarrego</td><td>Cachimbo, velas branca/preta, bolo de fubá</td><td>Adorei as Almas!</td>
+                        <tr><td>Caboclos</td><td>Índios ou mestiços, postura firme</td><td>Força, coragem, ligação com a natureza</td><td>Cura espiritual, proteção, ensinamentos</td><td>Arcos, flechas, ervas, vinho ou cachaça</td><td>Okê Caboclo!</td>
+                        <tr><td>Baianos</td><td>Nordestinos, alegres e descontraídos</td><td>Fé, alegria, perseverança</td><td>Quebra de magias, rezas fortes, orientação</td><td>Chapéu de palha, coco, batida de coco</td><td>Xetroá Bahia!</td>
+                        <tr><td>Boiadeiros</td><td>Vaqueiros, peões sertanejos</td><td>Sisudos, valorosos, poucas palavras</td><td>Defesa contra espíritos, limpeza energética</td><td>Laço, chicote, bebidas fortes, carne seca</td><td>Xetroá Boiadeiro!</td>
+                        <tr><td>Ciganos</td><td>Roupas coloridas e adornos</td><td>Alegres, livres, amor e conhecimento</td><td>Trabalhos com saúde, amor, prosperidade</td><td>Cartas, cristais, incensos, lenços, punhais</td><td>Optchá!</td>
                     </tbody>
                 </table>
             </div>
-        </div>
 
-        <div id="calendario" class="tab-content">
-            <h2>Datas e Sincretismo</h2>
-            <button class="accordion">PRINCIPAIS DATAS <span>▼</span></button>
-            <div class="panel">
-                <p><strong>20/01:</strong> Oxóssi (São Sebastião)</p>
-                <p><strong>23/04:</strong> Ogum (São Jorge)</p>
-                <p><strong>13/05:</strong> Pretos Velhos (Abolição)</p>
-                <p><strong>24/06:</strong> Xangô (São João Batista)</p>
-                <p><strong>15/11:</strong> Fundação da Umbanda</p>
+            <h3>Mapa das Sete Linhas da Umbanda</h3>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Linha</th>
+                            <th>Orixá Regente</th>
+                            <th>Conexões</th>
+                            <th>Entidades que costumam aparecer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Linha da Fé</td><td>Oxalá</td><td>Força central; paz e espiritualidade.</td><td>Caboclos de Oxalá, Guias de luz, Pretos Velhos.</td></tr>
+                        <tr><td>Linha da Lei</td><td>Ogum</td><td>Abertura de caminhos. Liga-se a Exus.</td><td>Caboclos de Ogum, Exus de Lei, Boiadeiros.</td></tr>
+                        <tr><td>Linha do Conhecimento</td><td>Oxóssi</td><td>Natureza, cura e prosperidade.</td><td>Caboclos de Oxóssi, Erês, Guias curadores.</td></tr>
+                        <tr><td>Linha da Justiça</td><td>Xangô</td><td>Equilíbrio e justiça. Liga-se a Iansã.</td><td>Caboclos de Xangô, Pretos Velhos, Exus.</td></tr>
+                        <tr><td>Linha da Geração</td><td>Iemanjá</td><td>Criação e maternidade. Liga-se a Oxum/Nanã.</td><td>Marinheiros, Caboclas de Iemanjá, Guias femininos.</td></tr>
+                        <tr><td>Linha da Movimentação</td><td>Iansã</td><td>Força dos ventos. Liga-se a Xangô/Exus.</td><td>Caboclas de Iansã, Pomba Giras, Exus.</td></tr>
+                        <tr><td>Linha da Evolução</td><td>Omulu</td><td>Saúde, cura e transformação.</td><td>Pretos Velhos, Caboclos de cura.</td></tr>
+                        <tr><td>Linha Mista (Iofá)</td><td>Diversos</td><td>Integra todas as linhas na caridade.</td><td>Marinheiros, Baianos, Boiadeiros, Ciganos, Malandros.</td></tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
 
-        <div id="hierarquia" class="tab-content">
-            <h2>A Hierarquia da Casa</h2>
+            <h3>Pontos de Força na Natureza</h3>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Linha</th>
+                            <th>Orixá Regente</th>
+                            <th>Entidades</th>
+                            <th>Pontos de Força na Natureza</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Linha da Fé</td><td>Oxalá</td><td>Caboclos de Oxalá, Pretos Velhos</td><td>Campos abertos, colinas, portas de igrejas</td></tr>
+                        <tr><td>Linha da Lei</td><td>Ogum</td><td>Caboclos de Ogum, Exus de Lei</td><td>Estradas, encruzilhadas, porteiras</td></tr>
+                        <tr><td>Linha do Conhecimento</td><td>Oxóssi</td><td>Caboclos, Erês, Curadores</td><td>Matas, florestas, cachoeiras</td></tr>
+                        <tr><td>Linha da Justiça</td><td>Xangô</td><td>Caboclos, Pretos Velhos, Exus</td><td>Pedreiras, montanhas, cachoeiras</td></tr>
+                        <tr><td>Linha da Geração</td><td>Iemanjá</td><td>Marinheiros, Caboclas, Oxum, Nanã</td><td>Praias, rios, lagoas, beira-mar</td></tr>
+                        <tr><td>Linha da Movimentação</td><td>Iansã</td><td>Caboclas, Pomba Giras, Exus</td><td>Ventos, tempestades, cemitérios, encruzilhadas</td></tr>
+                        <tr><td>Linha da Evolução</td><td>Omulu</td><td>Pretos Velhos, Caboclos de cura</td><td>Cemitérios, cruzeiros, locais de passagem</td></tr>
+                        <tr><td>Linha Mista (Iofá)</td><td>Diversos</td><td>Arquétipos humanos de caridade</td><td>Beira-mar, estradas, praças, locais urbanos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Guia Prático de Oferendas (Checklist)</h3>
             <div class="grid-cards">
                 <div class="card">
-                    <h3>Comando Chefe (CCT)</h3>
-                    <p>Babalaô Pai Vigilato, Mãe Andrea e Yan</p>
+                    <h4>Oxalá (Linha da Fé)</h4>
+                    <p>🍽️ Canjica, milho branco, arroz doce, frutas brancas<br>🥤 Água, leite, vinho tinto, água de coco<br>🌿 Boldo, algodão, alecrim, hortelã<br>🌸 Rosas brancas, lírios<br>📍 Campos abertos, colinas, igrejas</p>
                 </div>
                 <div class="card">
-                    <h3>Corpo Auxiliar</h3>
-                    <p>Cambone Chefe, Ogans (Harmonia), Pai/Mãe Pequena.</p>
+                    <h4>Ogum (Linha da Lei)</h4>
+                    <p>🍽️ Feijão preto, carne vermelha, farofa de dendê<br>🥤 Cerveja, vinho tinto, cachaça<br>🌿 Espada de São Jorge, arruda, guiné<br>🌸 Cravos vermelhos<br>📍 Estradas, encruzilhadas, porteiras</p>
+                </div>
+                <div class="card">
+                    <h4>Oxóssi (Conhecimento)</h4>
+                    <p>🍽️ Frutas, milho verde, caça<br>🥤 Vinho branco, cerveja clara<br>🌿 Erva-doce, alecrim, guiné, folhas da mata<br>🌸 Flores do campo<br>📍 Matas, florestas, cachoeiras</p>
+                </div>
+                <div class="card">
+                    <h4>Xangô (Justiça)</h4>
+                    <p>🍽️ Quiabo, amalá, frutas secas<br>🥤 Vinho tinto<br>🌿 Folha de mangueira, jurubeba, arruda<br>🌸 Palmas, flores amarelas<br>📍 Pedreiras, montanhas, cachoeiras</p>
+                </div>
+            </div>
+
+            <h3>Quadro de Sincretismo na Umbanda</h3>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Orixá</th>
+                            <th>Sincretismo Católico</th>
+                            <th>Características principais</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Oxalá</td><td>Jesus Cristo</td><td>Fé, paz, amor, pureza espiritual</td></tr>
+                        <tr><td>Ogum</td><td>São Jorge</td><td>Força, coragem, abertura de caminhos</td></tr>
+                        <tr><td>Oxóssi</td><td>São Sebastião</td><td>Caça, fartura, prosperidade, cura</td></tr>
+                        <tr><td>Xangô</td><td>São Jerônimo / São João Batista</td><td>Justiça, equilíbrio, poder das pedreiras</td></tr>
+                        <tr><td>Oxum</td><td>Nossa Senhora da Conceição</td><td>Beleza, amor, águas doces, fertilidade</td></tr>
+                        <tr><td>Iansã (Oyá)</td><td>Santa Bárbara</td><td>Ventos, tempestades, movimentação</td></tr>
+                        <tr><td>Nanã</td><td>Sant’Ana</td><td>Sabedoria ancestral, águas paradas</td></tr>
+                        <tr><td>Iemanjá</td><td>Nossa Senhora dos Navegantes</td><td>Maternidade, águas salgadas, proteção</td></tr>
+                        <tr><td>Omulu/Obaluaiê</td><td>São Lázaro / São Roque</td><td>Saúde, cura, evolução, cemitério</td></tr>
+                        <tr><td>Cosme e Damião</td><td>Santos Cosme e Damião</td><td>Pureza, alegria, energia infantil</td></tr>
+                        <tr><td>Exu</td><td>Santo Antônio (algumas tradições)</td><td>Guardião, justiça cármica, comunicação</td></tr>
+                        <tr><td>Linha Cigana</td><td>Santa Sara Kali</td><td>Liberdade, amor, prosperidade, magia branca</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ABA 3: TRABALHAMOS -->
+        <div id="trabalhamos" class="tab-content">
+            <h2>7 Linhas de Incorporação</h2>
+            <div class="card" style="margin-bottom: 20px;">
+                <ul style="list-style: none;">
+                    <li>• OXOSSI</li>
+                    <li>• OGUM</li>
+                    <li>• XANGÔ (IANSÃ)</li>
+                    <li>• IEMANJÁ (LINHA DE ÁGUA - OXUM - NANÂ)</li>
+                    <li>• COSMI E DAMINHÃO</li>
+                    <li>• EXU (LINHA DA ESQUERDA)</li>
+                    <li>• LOFÁ (BONHADEIRO, MARINHREIRO, PRETOS VELHOS, BAIANOS, CIGANOS, ETC.)</li>
+                </ul>
+            </div>
+
+            <h2>Linhas de Consulta que Trabalhamos</h2>
+            <div class="card" style="margin-bottom: 20px;">
+                <ul style="list-style: none;">
+                    <li>• BONHADEIRO</li>
+                    <li>• MARINHEIRO</li>
+                    <li>• PRETO VELHO</li>
+                    <li>• BAIANOS</li>
+                    <li>• CIGANOS</li>
+                    <li>• EXU</li>
+                    <li>• Malandro</li>
+                </ul>
+            </div>
+
+            <h2>Defumação</h2>
+            <div class="card">
+                <p>Limpar tanto o ambiente quanto o corpo e proteger a casa e os trabalhos que irão ser feitos.</p>
+            </div>
+        </div>
+
+        <!-- ABA 5: CALENDÁRIO -->
+        <div id="calendario" class="tab-content">
+            <h2>Calendário Ritual da Umbanda</h2>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Data</th><th>Orixá / Entidade</th><th>Sincretismo</th><th>Significado</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1º de jan</td><td>Oxalá</td><td>Jesus Cristo</td><td>Paz, fé e renovação espiritual</td></tr>
+                        <tr><td>20 de jan</td><td>Oxóssi</td><td>São Sebastião</td><td>Caça, fartura, prosperidade</td></tr>
+                        <tr><td>2 de fev</td><td>Iemanjá</td><td>N. Sra. Navegantes</td><td>Maternidade, proteção</td></tr>
+                        <tr><td>4 de fev</td><td>Oxum</td><td>N. Sra. Conceição</td><td>Beleza, amor, águas doces</td></tr>
+                        <tr><td>19 de mar</td><td>Obá</td><td>São José</td><td>Força feminina, disciplina</td></tr>
+                        <tr><td>23 de abr</td><td>Ogum</td><td>São Jorge</td><td>Força, coragem, caminhos</td></tr>
+                        <tr><td>24 de mai</td><td>Cigano</td><td>Santa Sara Kali</td><td>Liberdade, magia branca</td></tr>
+                        <tr><td>13 de mai</td><td>Pretos Velhos</td><td>Abolição</td><td>Sabedoria e humildade</td></tr>
+                        <tr><td>24 de jun</td><td>Xangô</td><td>São João Batista</td><td>Justiça, equilíbrio</td></tr>
+                        <tr><td>26 de jul</td><td>Nanã</td><td>Sant’Ana</td><td>Sabedoria ancestral</td></tr>
+                        <tr><td>10 de ago</td><td>Omulu</td><td>São Lázaro</td><td>Saúde, cura, evolução</td></tr>
+                        <tr><td>27 de set</td><td>Cosme e Damião</td><td>S. Cosme e Damião</td><td>Pureza, alegria</td></tr>
+                        <tr><td>4 de dez</td><td>Iansã</td><td>Santa Bárbara</td><td>Ventos, tempestades</td></tr>
+                        <tr><td>8 de dez</td><td>Oxum</td><td>N. Sra. Conceição</td><td>Amor, fertilidade</td></tr>
+                        <tr><td>25 de dez</td><td>Oxalá</td><td>Jesus Cristo</td><td>Fé, paz, espiritualidade</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Guia de Rituais Mensais</h2>
+            <div class="grid-cards">
+                <div class="card"><h4>Janeiro: Oxalá</h4><p>🍽️ Canjica, frutas, leite | 📍 Campos abertos, igrejas</p></div>
+                <div class="card"><h4>Fevereiro: Iemanjá/Oxum</h4><p>🌊 Iemanjá: Arroz doce, rosas | 🍯 Oxum: Frutas doces, flores amarelas</p></div>
+                <div class="card"><h4>Março: Obá</h4><p>🍽️ Milho, feijão | 📍 Rios e cachoeiras</p></div>
+                <div class="card"><h4>Abril: Ogum</h4><p>⚔️ Feijão preto, carne, cerveja, cravos | 📍 Estradas</p></div>
+                <div class="card"><h4>Maio: Pretos Velhos</h4><p>☕ Café, bolo de fubá, pipoca, cachimbo | 📍 Cruzeiros, cemitérios</p></div>
+                <div class="card"><h4>Junho: Xangô</h4><p>⚒️ Amalá, vinho tinto, flores amarelas | 📍 Pedreiras</p></div>
+                <div class="card"><h4>Julho: Nanã</h4><p>🌿 Milho cozido, feijão, flores lilás | 📍 Lagos, águas paradas</p></div>
+                <div class="card"><h4>Agosto: Omulu</h4><p>🍿 Pipoca, milho, café, vinho tinto | 📍 Cemitérios</p></div>
+                <div class="card"><h4>Setembro: Erês</h4><p>🍭 Doces, balas, guaraná | 📍 Praças, jardins</p></div>
+                <div class="card"><h4>Outubro: Caboclos</h4><p>🏹 Frutas, carne seca, farofa, charutos | 📍 Matas, campos</p></div>
+                <div class="card"><h4>Novembro: Fundação</h4><p>🕯️ Velas brancas, flores, orações | 📍 Terreiros, altares</p></div>
+                <div class="card"><h4>Dezembro: Iansã/Oxum/Oxalá</h4><p>⚡ Iansã: Acarajé | 🍯 Oxum: Doces | 🕊️ Oxalá: Canjica</p></div>
+            </div>
+        </div>
+
+        <!-- ABA 6: HIERARQUIA -->
+        <div id="hierarquia" class="tab-content">
+            <h2>A Hierarquia da Casa</h2>
+            <div class="card" style="margin-bottom: 30px;">
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 10px;"><strong>• CCT</strong> - Comandante Chefe do Terreiro - Morumbixaba / Babalaô Pai Vigilato e Mãe Andrea e Yan</li>
+                    <li style="margin-bottom: 10px;"><strong>• CC</strong> - Cambone Chefe</li>
+                    <li style="margin-bottom: 10px;"><strong>• Ogans</strong> - Harmônia</li>
+                    <li style="margin-bottom: 10px;"><strong>• PP MP</strong> - Pai Pequeno e Mãe Pequena</li>
+                    <li style="margin-bottom: 10px;"><strong>• SCCT</strong> - Sub Comandante Chefe de Terreiro - Abareguassu</li>
+                    <li style="margin-bottom: 10px;"><strong>• CT</strong> - Chefe de Terreiro - Abaré</li>
+                    <li style="margin-bottom: 10px;"><strong>• SCT</strong> - Sub Chefe de Terreiro - Abaré Mirim</li>
+                    <li style="margin-bottom: 10px;"><strong>• T</strong> - Abojaguassu</li>
+                    <li style="margin-bottom: 10px;"><strong>• Fiscais</strong></li>
+                </ul>
+            </div>
+
+            <h2>Pai e Mãe de Cabeça</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>Mãe Andrea</h3>
+                    <p><strong>• Pai de cabeça Oxóssi</strong></p>
+                    <p>Sincretismo: São João Sebastião | Entidade: Caboclo Arranca Toco | Data: 20 de Janeiro</p>
+                    <br>
+                    <p><strong>• Mãe de cabeça Oxum</strong></p>
+                    <p>Sincretismo: Nossa Senhora Aparecida | Entidade: Cabocla Sol Nascente | Data: 12 de Outubro</p>
+                </div>
+
+                <div class="card">
+                    <h3>Pai Vigilato</h3>
+                    <p><strong>• Pai de cabeça Xangô Cão</strong></p>
+                    <p>Sincretismo: São João Batista | Entidade: Caboclo Campo Dourado | Data: 24 de Junho</p>
+                    <br>
+                    <p><strong>• Mãe de cabeça Iemanjá</strong></p>
+                    <p>Sincretismo: Nossa Senhora dos Navegantes | Entidade: Cabocla Estrela do Mar Azul | Data: 8 de Dezembro</p>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 40px;">Guias Chefes</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>Guias Chefes da Mãe</h3>
+                    <ul style="list-style: none;">
+                        <li>• Preto velho - Vó Maria Conga</li>
+                        <li>• Exu - Mata/Encruzilhada</li>
+                        <li>• Pomba gira - Maria Padilha</li>
+                        <li>• Marinheiro - Chico Beira Mar</li>
+                        <li>• Boiadeiro - Seu João Pantaneiro</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Guias Chefes do Pai</h3>
+                    <ul style="list-style: none;">
+                        <li>• Preto Velho - Pai Joaquim</li>
+                        <li>• Marinheiro - Zé da Maré</li>
+                        <li>• Boiadeiro - João Boiada</li>
+                        <li>• Baiano - Zé do Cangaço</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -265,35 +497,28 @@
 </div>
 
 <footer>
-    <p>© 2024 Doutrina e Fundamentos de Umbanda</p>
+    <p>© 2026 Portal de Doutrina e Fundamentos</p>
 </footer>
 
 <script>
-    // Menu Dropdown Mobile
     const menuBtn = document.getElementById('menu-btn');
     const navMenu = document.getElementById('nav-menu');
 
-    menuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
+    menuBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
 
-    // Troca de Abas
     function changeTab(tabId) {
-        const contents = document.querySelectorAll('.tab-content');
-        contents.forEach(content => content.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
         navMenu.classList.remove('active');
         window.scrollTo({ top: 300, behavior: 'smooth' });
     }
 
-    // Acordeão
-    const acc = document.getElementsByClassName("accordion");
-    for (let i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
+    document.querySelectorAll(".accordion").forEach(acc => {
+        acc.addEventListener("click", function() {
             const panel = this.nextElementSibling;
             panel.style.display = panel.style.display === "block" ? "none" : "block";
         });
-    }
+    });
 </script>
 
 </body>
